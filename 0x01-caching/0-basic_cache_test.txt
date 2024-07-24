@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+python3 -m doctest -v (basename (status -f))
+exit
+"""
+
+>>> BasicCache = __import__('0-basic_cache').BasicCache
+>>> my_cache = BasicCache()
+>>> my_cache.print_cache()
+Current cache:
+
+>>> my_cache.put("A", "Hello")
+>>> my_cache.put("B", "World")
+>>> my_cache.print_cache()
+Current cache:
+
+A: Heloo
+B: World
+C: Holberton
+
+>>> print(my_cache.get("A"))
+Hello
+
+
+>>> print(my_cache("B"))
+World
+
+>>> print(my_cache("C"))
+Holberton
+
+>>> print(my_cache("D"))
+None
+
+>>> my_cache.print_cache()
+Current cache:
+A: Hello
+B: World
+C: Holberton
+
+>>> my_cache.put("D", "School")
+>>> my_cache.put("E", "Battery")
+>>> my_cache.put("A", "Street")
+>>> my_cache.print_cache()
+
+Current cache:
+A: Street
+B: World
+C: Holberton
+D: School
+E: Battery
+
+>>> print(my_cache.get("A"))
+Street
+
+"""
